@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">RememberMe2</string>
+    <string name="title_home">Home</string>
+    <string name="title_notifications">Alert</string>
+    <string name="hint">Enter things to be reminded!</string>
+    <string name="things_bottom">Confirm</string>
+    <string name="input_message">Please enter alternate phone number here, such as 12027777777.</string>
+    <string name="input_hint">Alternate phone number is used to receive the location of the elderly.</string>
+    <string name="input_phone">Please enter phone number here, such as 12027777777.</string>
+    <string name="input_hint_phone">Phone is used to receive the call from the elderly and the location of the elderly.</string>
+    <string name="phone">Phone</string>
+    <string name="message">Message</string>
+    <string name="phone_number">Phone number: %s</string>
+    <string name="alternate_phone_number">Alternate phone number: %s</string>
+    <string name="phoneNumber">Phone number:</string>
+    <string name="alternatePhoneNumber">Alternate phone number:</string>
+    <string name="setTime_bottom">Set Time</string>
 </resources>
