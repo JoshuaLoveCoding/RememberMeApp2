@@ -63,7 +63,7 @@ class PersistenceManager(private val context: Context) {
             }
 
             if(reminders != null) {
-                return reminders.sortedByDescending { it.reminder }
+                return reminders.sortedByDescending { it.date }
             }
             else {
                 return emptyList<Reminder>()
