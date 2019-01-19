@@ -7,7 +7,9 @@
     <string name="input_message">Please enter alternate phone number here, such as 12027777777.</string>
     <string name="input_hint">Alternate phone number is used to receive the location of the elderly.</string>
     <string name="input_phone">Please enter phone number here, such as 12027777777.</string>
-    <string name="input_hint_phone">Phone is used to receive the call from the elderly and the location of the elderly.</string>
+    <string name="input_hint_phone">Phone is used to receive the call from the elderly and the location of the
+        elderly.
+    </string>
     <string name="phone">Phone</string>
     <string name="message">Message</string>
     <string name="phone_number">Phone number: %s</string>
