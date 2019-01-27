@@ -4,8 +4,10 @@ import android.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
+import kotlinx.android.synthetic.main.activity_alert.*
 import kotlinx.android.synthetic.main.dialog_face.view.*
 
 class AlertActivity : AppCompatActivity() {
@@ -13,6 +15,13 @@ class AlertActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert)
+
+        setSupportActionBar(alert_toolbar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.alert_menu, menu)
+        return true
     }
 
     fun phoneButtonPressed(barpet: MenuItem) {

@@ -7,6 +7,12 @@
         android:layout_height="match_parent"
         tools:context=".AlertActivity">
 
+    <android.support.v7.widget.Toolbar
+            android:id="@+id/alert_toolbar"
+            android:background="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"/>
+
     <TextView
             android:text="@string/phoneNumber"
             android:layout_width="match_parent"
