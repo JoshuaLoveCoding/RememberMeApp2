@@ -31,11 +31,6 @@ class MainActivity : AppCompatActivity() {
         recycler_view.adapter = remindersAdapter
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
     fun confirmButtonPressed(view: View) {
         button.setOnClickListener {
             val reminderText = editTextReminder.text.toString()
