@@ -1,8 +1,10 @@
 package edu.gwu.rememberme2
 
 import android.app.AlertDialog
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
@@ -17,6 +19,24 @@ class AlertActivity : AppCompatActivity() {
         setContentView(R.layout.activity_alert)
 
         setSupportActionBar(alert_toolbar)
+
+        val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        navigation.setOnNavigationItemSelectedListener(object :
+            BottomNavigationView.OnNavigationItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                when (item.itemId) {
+                    R.id.navigation_home -> {
+                        val a = Intent(this@AlertActivity, MainActivity::class.java)
+                        startActivity(a)
+                    }
+                    R.id.navigation_notifications -> {
+                        val b = Intent(this@AlertActivity, AlertActivity::class.java)
+                        startActivity(b)
+                    }
+                }
+                return false
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

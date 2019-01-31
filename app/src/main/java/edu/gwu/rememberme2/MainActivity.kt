@@ -1,10 +1,13 @@
 package edu.gwu.rememberme2
 
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.design.widget.BottomNavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -29,6 +32,24 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = remindersAdapter
+
+        val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        navigation.setOnNavigationItemSelectedListener(object :
+            BottomNavigationView.OnNavigationItemSelectedListener {
+            override fun onNavigationItemSelected(item: MenuItem): Boolean {
+                when (item.itemId) {
+                    R.id.navigation_home -> {
+                        val a = Intent(this@MainActivity, MainActivity::class.java)
+                        startActivity(a)
+                    }
+                    R.id.navigation_notifications -> {
+                        val b = Intent(this@MainActivity, AlertActivity::class.java)
+                        startActivity(b)
+                    }
+                }
+                return false
+            }
+        })
     }
 
     fun confirmButtonPressed(view: View) {
