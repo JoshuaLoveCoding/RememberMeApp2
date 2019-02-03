@@ -28,10 +28,12 @@ class AlertActivity : AppCompatActivity() {
                     R.id.navigation_home -> {
                         val a = Intent(this@AlertActivity, MainActivity::class.java)
                         startActivity(a)
+                        overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out)
                     }
                     R.id.navigation_notifications -> {
                         val b = Intent(this@AlertActivity, AlertActivity::class.java)
                         startActivity(b)
+                        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)
                     }
                 }
                 return false
