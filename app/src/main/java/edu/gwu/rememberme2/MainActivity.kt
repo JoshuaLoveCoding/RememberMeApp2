@@ -41,12 +41,12 @@ class MainActivity : AppCompatActivity() {
                     R.id.navigation_home -> {
                         val a = Intent(this@MainActivity, MainActivity::class.java)
                         startActivity(a)
-                        overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out)
+                        overridePendingTransition(R.anim.left_slide_in, R.anim.left_slide_out)//show from left side
                     }
                     R.id.navigation_notifications -> {
                         val b = Intent(this@MainActivity, AlertActivity::class.java)
                         startActivity(b)
-                        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)
+                        overridePendingTransition(R.anim.right_slide_in, R.anim.right_slide_out)//show from right side
                     }
                 }
                 return false
