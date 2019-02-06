@@ -53,7 +53,7 @@ class AlertActivity : AppCompatActivity() {
 
         mDialogView.btnOk.setOnClickListener {
             mAlertDialog.dismiss()
-            val phone = mDialogView.editText.text.toString()
+            val phone = mDialogView.editText.text.toString()//get the number
             var t = findViewById(R.id.textView) as TextView
             t.text = getString(R.string.phone_number, phone)
         }
@@ -71,7 +71,7 @@ class AlertActivity : AppCompatActivity() {
 
         mDialogView.btnOk.setOnClickListener {
             mAlertDialog.dismiss()
-            val message = mDialogView.editText.text.toString()
+            val message = mDialogView.editText.text.toString()//get the number
             var t2 = findViewById(R.id.textView2) as TextView
             t2.text = getString(R.string.alternate_phone_number, message)
         }
