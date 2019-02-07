@@ -13,12 +13,17 @@ import kotlinx.android.synthetic.main.activity_alert.*
 import kotlinx.android.synthetic.main.dialog_face.view.*
 
 class AlertActivity : AppCompatActivity() {
+    private lateinit var persistenceManager: PersistenceManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert)
 
         setSupportActionBar(alert_toolbar)
+
+        persistenceManager = PersistenceManager(this)
+
+        val phones = persistenceManager.fetchPhones()
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener(object :

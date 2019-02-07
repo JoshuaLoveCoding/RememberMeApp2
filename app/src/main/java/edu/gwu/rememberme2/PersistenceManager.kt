@@ -70,4 +70,35 @@ class PersistenceManager(private val context: Context) {
             }
         }
     }
+
+    fun fetchPhones(): List<String> {
+
+        val jsonString = sharedPreferences.getString(Constants.PHONES_PREF_KEY, null)
+
+        //if null, this means no previous phones, so create an empty array list
+        if(jsonString == null) {
+            return arrayListOf()
+        }
+        else {
+            //existing phones, so convert the phones JSON string into Phone objects, using Moshi
+            val listType = Types.newParameterizedType(List::class.java, String::class.java)
+            val moshi = Moshi.Builder()
+                .build()
+            val jsonAdapter = moshi.adapter<List<String>>(listType)
+
+            var phones:List<String>? = emptyList<String>()
+            try {
+                phones = jsonAdapter.fromJson(jsonString)
+            } catch (e: IOException) {
+                Log.e(ContentValues.TAG, e.message)
+            }
+
+            if(phones != null) {
+                return phones
+            }
+            else {
+                return emptyList<String>()
+            }
+        }
+    }
 }
