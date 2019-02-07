@@ -25,6 +25,16 @@ class AlertActivity : AppCompatActivity() {
 
         val phones = persistenceManager.fetchPhones()
 
+        if (phones[0] != null) {
+            var t = findViewById(R.id.textView) as TextView
+            t.text = getString(R.string.phone_number, phones[0])
+        }
+
+        if (phones[1] != null) {
+            var t2 = findViewById(R.id.textView2) as TextView
+            t2.text = getString(R.string.alternate_phone_number, phones[1])
+        }
+
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
