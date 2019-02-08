@@ -27,12 +27,12 @@ class AlertActivity : AppCompatActivity() {
 
         if (phones[0] != null) {
             var t = findViewById(R.id.textView) as TextView
-            t.text = getString(R.string.phone_number, phones[0])
+            t.text = getString(R.string.phone_number, phones[0])//show number
         }
 
         if (phones[1] != null) {
             var t2 = findViewById(R.id.textView2) as TextView
-            t2.text = getString(R.string.alternate_phone_number, phones[1])
+            t2.text = getString(R.string.alternate_phone_number, phones[1])//show number
         }
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
