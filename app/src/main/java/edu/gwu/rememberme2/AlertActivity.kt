@@ -25,15 +25,16 @@ class AlertActivity : AppCompatActivity() {
 
         val phones = persistenceManager.fetchPhones()
 
-        if (phones[0] != null) {
+        if (phones != null) {
             var t = findViewById(R.id.textView) as TextView
             t.text = getString(R.string.phone_number, phones[0])//show number
         }
 
-        if (phones[1] != null) {
+        if (phones != null) {
             var t2 = findViewById(R.id.textView2) as TextView
-            t2.text = getString(R.string.alternate_phone_number, phones[1])//show number
+            t2.text = getString(R.string.alternate_phone_number, phones[0])//show number
         }
+
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         navigation.setOnNavigationItemSelectedListener(object :
@@ -71,6 +72,7 @@ class AlertActivity : AppCompatActivity() {
             val phone = mDialogView.editText.text.toString()//get the number
             var t = findViewById(R.id.textView) as TextView
             t.text = getString(R.string.phone_number, phone)
+            persistenceManager.savePhone(phone)
         }
 
         mDialogView.btnCancel.setOnClickListener {
@@ -89,6 +91,7 @@ class AlertActivity : AppCompatActivity() {
             val message = mDialogView.editText.text.toString()//get the number
             var t2 = findViewById(R.id.textView2) as TextView
             t2.text = getString(R.string.alternate_phone_number, message)
+            persistenceManager.savePhone(message)
         }
 
         mDialogView.btnCancel.setOnClickListener {

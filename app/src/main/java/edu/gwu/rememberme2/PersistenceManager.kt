@@ -39,6 +39,26 @@ class PersistenceManager(private val context: Context) {
 
     }
 
+    fun savePhone(phone: String) {
+
+        val phones = fetchPhones().toMutableList()
+
+        phones.add(phone)
+
+        val editor = sharedPreferences.edit()
+
+        //convert a list of scores into a JSON string
+        val moshi = Moshi.Builder().build()
+        val listType = Types.newParameterizedType(List::class.java, String::class.java)
+        val jsonAdapter = moshi.adapter<List<String>>(listType)
+        val jsonString = jsonAdapter.toJson(phones)
+
+        editor.putString(Constants.PHONES_PREF_KEY, jsonString)
+
+        editor.apply()
+
+    }
+
     fun fetchReminders(): List<Reminder> {
 
         val jsonString = sharedPreferences.getString(Constants.REMINDERS_PREF_KEY, null)
