@@ -41,7 +41,7 @@ class PersistenceManager(private val context: Context) {
 
     fun savePhone(phone: String) {
 
-        val phones = fetchPhones().toMutableList()
+        val phones = emptyList<String>().toMutableList()
 
         phones.add(phone)
 
@@ -54,6 +54,26 @@ class PersistenceManager(private val context: Context) {
         val jsonString = jsonAdapter.toJson(phones)
 
         editor.putString(Constants.PHONES_PREF_KEY, jsonString)
+
+        editor.apply()
+
+    }
+
+    fun saveMessage(message: String) {
+
+        val messages = emptyList<String>().toMutableList()
+
+        messages.add(message)
+
+        val editor = sharedPreferences.edit()
+
+        //convert a list of scores into a JSON string
+        val moshi = Moshi.Builder().build()
+        val listType = Types.newParameterizedType(List::class.java, String::class.java)
+        val jsonAdapter = moshi.adapter<List<String>>(listType)
+        val jsonString = jsonAdapter.toJson(messages)
+
+        editor.putString(Constants.MESSAGES_PREF_KEY, jsonString)
 
         editor.apply()
 
@@ -115,6 +135,37 @@ class PersistenceManager(private val context: Context) {
 
             if(phones != null) {
                 return phones
+            }
+            else {
+                return emptyList<String>()
+            }
+        }
+    }
+
+    fun fetchMessages(): List<String> {
+
+        val jsonString = sharedPreferences.getString(Constants.MESSAGES_PREF_KEY, null)
+
+        //if null, this means no previous phones, so create an empty array list
+        if(jsonString == null) {
+            return arrayListOf()
+        }
+        else {
+            //existing phones, so convert the phones JSON string into Phone objects, using Moshi
+            val listType = Types.newParameterizedType(List::class.java, String::class.java)
+            val moshi = Moshi.Builder()
+                .build()
+            val jsonAdapter = moshi.adapter<List<String>>(listType)
+
+            var messages:List<String>? = emptyList<String>()
+            try {
+                messages = jsonAdapter.fromJson(jsonString)
+            } catch (e: IOException) {
+                Log.e(ContentValues.TAG, e.message)
+            }
+
+            if(messages != null) {
+                return messages
             }
             else {
                 return emptyList<String>()

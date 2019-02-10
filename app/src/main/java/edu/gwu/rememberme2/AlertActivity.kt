@@ -11,6 +11,7 @@ import android.view.MenuItem
 import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_alert.*
 import kotlinx.android.synthetic.main.dialog_face.view.*
+import java.util.*
 
 class AlertActivity : AppCompatActivity() {
     private lateinit var persistenceManager: PersistenceManager
@@ -24,15 +25,16 @@ class AlertActivity : AppCompatActivity() {
         persistenceManager = PersistenceManager(this)
 
         val phones = persistenceManager.fetchPhones()
+        val messages = persistenceManager.fetchMessages()
 
-        if (phones != null) {
+        if (phones != Collections.emptyList<String>()) {
             var t = findViewById(R.id.textView) as TextView
             t.text = getString(R.string.phone_number, phones[0])//show number
         }
 
-        if (phones != null) {
+        if (messages != Collections.emptyList<String>()) {
             var t2 = findViewById(R.id.textView2) as TextView
-            t2.text = getString(R.string.alternate_phone_number, phones[0])//show number
+            t2.text = getString(R.string.alternate_phone_number, messages[0])//show number
         }
 
 
@@ -91,7 +93,7 @@ class AlertActivity : AppCompatActivity() {
             val message = mDialogView.editText.text.toString()//get the number
             var t2 = findViewById(R.id.textView2) as TextView
             t2.text = getString(R.string.alternate_phone_number, message)
-            persistenceManager.savePhone(message)
+            persistenceManager.saveMessage(message)
         }
 
         mDialogView.btnCancel.setOnClickListener {
