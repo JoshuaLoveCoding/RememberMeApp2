@@ -39,6 +39,9 @@ class AlertActivity : AppCompatActivity() {
 
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        val menu = navigation.getMenu()
+        val menuItem = menu.getItem(1)
+        menuItem.setChecked(true)
         navigation.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {

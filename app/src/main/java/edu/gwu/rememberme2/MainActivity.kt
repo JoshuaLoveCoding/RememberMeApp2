@@ -33,6 +33,9 @@ class MainActivity : AppCompatActivity() {
         recycler_view.adapter = remindersAdapter
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
+        val menu = navigation.getMenu()
+        val menuItem = menu.getItem(0)
+        menuItem.setChecked(true)
         navigation.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
