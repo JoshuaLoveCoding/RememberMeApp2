@@ -41,7 +41,7 @@ class AlertActivity : AppCompatActivity() {
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         val menu = navigation.getMenu()
         val menuItem = menu.getItem(1)
-        menuItem.setChecked(true)
+        menuItem.setChecked(true) //set the clicked button color
         navigation.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
