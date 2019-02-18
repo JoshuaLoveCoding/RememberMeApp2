@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         val menu = navigation.getMenu()
-        val menuItem = menu.getItem(0)
+        val menuItem = menu.getItem(0) //set index
         menuItem.setChecked(true) //set the clicked button color
         navigation.setOnNavigationItemSelectedListener(object :
             BottomNavigationView.OnNavigationItemSelectedListener {
