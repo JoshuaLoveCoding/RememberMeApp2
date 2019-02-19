@@ -27,12 +27,12 @@ class AlertActivity : AppCompatActivity() {
         val phones = persistenceManager.fetchPhones()
         val messages = persistenceManager.fetchMessages()
 
-        if (phones != Collections.emptyList<String>()) {
+        if (phones != Collections.emptyList<String>()) {//not null
             var t = findViewById(R.id.textView) as TextView
             t.text = getString(R.string.phone_number, phones[0])//show number
         }
 
-        if (messages != Collections.emptyList<String>()) {
+        if (messages != Collections.emptyList<String>()) {//not null
             var t2 = findViewById(R.id.textView2) as TextView
             t2.text = getString(R.string.alternate_phone_number, messages[0])//show number
         }
