@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
     fun confirmButtonPressed(view: View) {
         button.setOnClickListener {
             val reminderText = editTextReminder.text.toString()
-            if (reminderText != "") {
+            if (reminderText != "") { // length not equals to 0
                 val reminder = Reminder(reminderText, Date())
                 persistenceManager.saveReminder(reminder)
             }
