@@ -67,7 +67,7 @@ class MainActivity : AppCompatActivity() {
             }
             editTextReminder.text.clear()
             val keyboard = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            keyboard.hideSoftInputFromWindow(editTextReminder.windowToken, 0)
+            keyboard.hideSoftInputFromWindow(editTextReminder.windowToken, 0) //hide keyboard
             persistenceManager = PersistenceManager(this)
 
             val reminders = persistenceManager.fetchReminders()
