@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
@@ -30,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         remindersAdapter = RemindersAdapter(reminders)
 
         recycler_view.layoutManager = LinearLayoutManager(this)
-        recycler_view.adapter = remindersAdapter
+        recycler_view.adapter = remindersAdapter //recycler view show items
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         val menu = navigation.getMenu()
