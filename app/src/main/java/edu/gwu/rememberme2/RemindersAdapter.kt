@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 
-class RemindersAdapter(private val reminders: List<Reminder>):
+class RemindersAdapter(private val reminders: MutableList<Reminder>):
     RecyclerView.Adapter<RemindersAdapter.ViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(viewGroup?.context)
@@ -22,6 +22,11 @@ class RemindersAdapter(private val reminders: List<Reminder>):
         val reminder = reminders.get(position)
 
         viewHolder.bind(reminder)
+    }
+
+    fun removeAt(position: Int) {
+        reminders.removeAt(position)
+        notifyItemRemoved(position)
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
