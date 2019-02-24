@@ -79,7 +79,7 @@ class PersistenceManager(private val context: Context) {
 
     }
 
-    fun fetchReminders(): List<Reminder> {
+    fun fetchReminders(): MutableList<Reminder> {
 
         val jsonString = sharedPreferences.getString(Constants.REMINDERS_PREF_KEY, null)
 
@@ -93,9 +93,9 @@ class PersistenceManager(private val context: Context) {
             val moshi = Moshi.Builder()
                 .add(Date::class.java, Rfc3339DateJsonAdapter())
                 .build()
-            val jsonAdapter = moshi.adapter<List<Reminder>>(listType)
+            val jsonAdapter = moshi.adapter<MutableList<Reminder>>(listType)
 
-            var reminders:List<Reminder>? = emptyList<Reminder>()
+            var reminders:MutableList<Reminder>? = emptyList<Reminder>()
             try {
                 reminders = jsonAdapter.fromJson(jsonString)
             } catch (e: IOException) {
@@ -103,7 +103,7 @@ class PersistenceManager(private val context: Context) {
             }
 
             if(reminders != null) {
-                return reminders.sortedByDescending { it.date }
+                return reminders
             }
             else {
                 return emptyList<Reminder>()

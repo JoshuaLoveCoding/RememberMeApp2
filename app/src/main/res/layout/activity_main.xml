@@ -7,50 +7,54 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity">
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/colorBack"
-        tools:context=".MainActivity">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/colorBack"
+                tools:context=".MainActivity">
 
-        <android.support.v7.widget.Toolbar
-                android:id="@+id/main_toolbar"
-                android:background="@color/colorPrimary"
-                android:layout_width="match_parent"
-                android:layout_height="?android:attr/actionBarSize"/>
+                <android.support.v7.widget.Toolbar
+                        android:id="@+id/main_toolbar"
+                        android:background="@color/colorPrimary"
+                        android:layout_width="match_parent"
+                        android:layout_height="?android:attr/actionBarSize"/>
 
-        <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPersonName"
-                android:ems="10"
-                android:id="@+id/editTextReminder"
-                android:textSize="20dp"
-                android:hint="@string/hint"/>
-        <Button
-                android:text="@string/setTime_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button2"
-                android:textSize="20dp"
-                android:layout_gravity="center"/>
-        <Button
-                android:text="@string/things_bottom"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/button"
-                android:textSize="20dp"
-                android:onClick="confirmButtonPressed"
-                android:layout_gravity="center"/>
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTextReminder"
+                        android:textSize="20dp"
+                        android:hint="@string/hint"/>
+                <Button
+                        android:text="@string/setTime_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button2"
+                        android:textSize="20dp"
+                        android:layout_gravity="center"/>
+                <Button
+                        android:text="@string/things_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button"
+                        android:textSize="20dp"
+                        android:onClick="confirmButtonPressed"
+                        android:layout_gravity="center"/>
+                <android.support.v7.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp">
+                </android.support.v7.widget.RecyclerView>
+                <View
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/view"
+                        android:minHeight="56dp"/>
 
-</LinearLayout>
+        </LinearLayout>
 
         <android.support.design.widget.BottomNavigationView
                 android:id="@+id/navigation"
@@ -67,4 +71,5 @@
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:menu="@menu/navigation" />
+
 </android.support.constraint.ConstraintLayout>
