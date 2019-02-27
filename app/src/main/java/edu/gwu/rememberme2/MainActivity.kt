@@ -7,11 +7,13 @@ import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.helper.ItemTouchHelper
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.SimpleAdapter
 
 
 class MainActivity : AppCompatActivity() {
@@ -32,6 +34,15 @@ class MainActivity : AppCompatActivity() {
 
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = remindersAdapter //recycler view show items
+
+        val swipeHandler = object : SwipeToDeleteCallback(this) {
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
+                val adapter = recycler_view.adapter as RemindersAdapter
+                adapter.removeAt(viewHolder.adapterPosition)
+            }
+        }
+        val itemTouchHelper = ItemTouchHelper(swipeHandler)
+        itemTouchHelper.attachToRecyclerView(recycler_view)
 
         val navigation = findViewById(R.id.navigation) as BottomNavigationView
         val menu = navigation.getMenu()
