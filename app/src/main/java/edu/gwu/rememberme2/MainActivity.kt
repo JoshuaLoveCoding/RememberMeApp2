@@ -39,6 +39,7 @@ class MainActivity : AppCompatActivity() {
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder, direction: Int) {
                 val adapter = recycler_view.adapter as RemindersAdapter
                 adapter.removeAt(viewHolder.adapterPosition)
+                persistenceManager.saveReminders(reminders)
             }
         }
         val itemTouchHelper = ItemTouchHelper(swipeHandler)

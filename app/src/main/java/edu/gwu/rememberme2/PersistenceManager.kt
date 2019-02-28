@@ -39,6 +39,22 @@ class PersistenceManager(private val context: Context) {
 
     }
 
+    fun saveReminders(reminders: MutableList<Reminder>) {
+
+        val editor = sharedPreferences.edit()
+
+        //convert a list of scores into a JSON string
+        val moshi = Moshi.Builder().add(Date::class.java, Rfc3339DateJsonAdapter()).build()
+        val listType = Types.newParameterizedType(List::class.java, Reminder::class.java)
+        val jsonAdapter = moshi.adapter<List<Reminder>>(listType)
+        val jsonString = jsonAdapter.toJson(reminders)
+
+        editor.putString(Constants.REMINDERS_PREF_KEY, jsonString)
+
+        editor.apply()
+
+    }
+
     fun savePhone(phone: String) {
 
         val phones = emptyList<String>().toMutableList()
