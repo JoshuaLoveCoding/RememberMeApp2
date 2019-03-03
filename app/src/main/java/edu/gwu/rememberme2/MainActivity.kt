@@ -13,12 +13,15 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.Button
 import android.widget.SimpleAdapter
+import java.time.LocalDateTime
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var persistenceManager: PersistenceManager
     private lateinit var remindersAdapter: RemindersAdapter
+    private var mLocalDateTime: LocalDateTime? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -69,6 +72,27 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+
+        // Create the choose date/time button
+        createButtonChooseDateTime()
+    }
+
+    private fun createButtonChooseDateTime() {
+        val button = R.id.button2 as Button?
+        button!!.setOnClickListener {
+            val fragmentManager = fragmentManager
+            // If there is already a Date displayed, use that.
+//            val dateToUse = if (mLocalDateTime == null) LocalDateTime().toDate() else mLocalDateTime.toDate()
+//            val datePickerFragment =
+//                FragmentFactory.createDatePickerFragment(dateToUse, "The", DateTimePickerFragment.BOTH,
+//                    object : DateTimePickerFragment.ResultHandler() {
+//                        fun setDate(result: Date) {
+//                            mLocalDateTime = LocalDateTime(result.time)
+//                            updateDateTimeTextView()
+//                        }
+//                    })
+//            datePickerFragment.show(fragmentManager, DateTimePickerFragment.DIALOG_TAG)
+        }
     }
 
     fun confirmButtonPressed(view: View) {

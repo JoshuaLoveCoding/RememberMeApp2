@@ -17,4 +17,8 @@
     <string name="phoneNumber">Phone number:</string>
     <string name="alternatePhoneNumber">Alternate phone number:</string>
     <string name="setTime_bottom">Set Time</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="choose_date_or_time">Choose Date or Time:</string>
 </resources>
