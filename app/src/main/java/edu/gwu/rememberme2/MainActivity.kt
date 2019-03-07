@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
 
             remindersAdapter = RemindersAdapter(reminders)
 
-            recycler_view.layoutManager = LinearLayoutManager(this)
+            recycler_view.layoutManager = LinearLayoutManager(this)//reload the view
             recycler_view.adapter = remindersAdapter
         }
     }
