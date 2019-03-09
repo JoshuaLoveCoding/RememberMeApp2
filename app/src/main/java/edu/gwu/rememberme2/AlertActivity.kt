@@ -20,7 +20,7 @@ class AlertActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_alert)
 
-        setSupportActionBar(alert_toolbar)
+        setSupportActionBar(alert_toolbar)//set tool bar
 
         persistenceManager = PersistenceManager(this)
 
