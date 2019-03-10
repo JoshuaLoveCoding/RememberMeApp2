@@ -75,7 +75,7 @@ class MainActivity : AppCompatActivity() {
             val reminderText = editTextReminder.text.toString()
             if (reminderText != "") { // length not equals to 0
                 val reminder = Reminder(reminderText, Date())
-                persistenceManager.saveReminder(reminder)
+                persistenceManager.saveReminder(reminder)//keep new reminder
             }
             editTextReminder.text.clear()
             val keyboard = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
