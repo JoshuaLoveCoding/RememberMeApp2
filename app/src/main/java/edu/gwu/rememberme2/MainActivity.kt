@@ -16,7 +16,7 @@ import android.view.inputmethod.InputMethodManager
 
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var persistenceManager: PersistenceManager
+    private lateinit var persistenceManager: PersistenceManager //set persistence parameter
     private lateinit var remindersAdapter: RemindersAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
