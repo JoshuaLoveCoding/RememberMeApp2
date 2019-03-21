@@ -1,23 +1,31 @@
 package edu.gwu.rememberme2
 
+import android.app.DatePickerDialog
+import android.app.Dialog
+import android.app.TimePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.DialogFragment
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
+import android.text.format.DateFormat
 import android.view.MenuItem
 import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import android.view.inputmethod.InputMethodManager
+import android.widget.DatePicker
+import android.widget.TimePicker
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var persistenceManager: PersistenceManager //set persistence parameter
     private lateinit var remindersAdapter: RemindersAdapter
+    internal lateinit var DateEdit: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,6 +78,13 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
+    fun setButtonPressed(view: View) {
+        button2.setOnClickListener {
+            showTruitonTimePickerDialog(view)
+            showTruitonDatePickerDialog(view)
+        }
+    }
+
     fun confirmButtonPressed(view: View) {
         button.setOnClickListener {
             val reminderText = editTextReminder.text.toString()//get text
@@ -88,6 +103,56 @@ class MainActivity : AppCompatActivity() {
 
             recycler_view.layoutManager = LinearLayoutManager(this)//reload the view
             recycler_view.adapter = remindersAdapter
+        }
+    }
+
+    fun showTruitonDatePickerDialog(v: View) {
+        val newFragment = DatePickerFragment()
+        newFragment.show(supportFragmentManager, "datePicker")
+    }
+
+    class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            // Use the current date as the default date in the picker
+            val c = Calendar.getInstance()
+            val year = c.get(Calendar.YEAR)
+            val month = c.get(Calendar.MONTH)
+            val day = c.get(Calendar.DAY_OF_MONTH)
+
+            // Create a new instance of DatePickerDialog and return it
+            return DatePickerDialog(activity!!, this, year, month, day)
+        }
+
+        override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
+            // Do something with the date chosen by the user
+            //DateEdit.setText(day.toString() + "/" + (month + 1) + "/" + year)
+        }
+    }
+
+    fun showTruitonTimePickerDialog(v: View) {
+        val newFragment = TimePickerFragment()
+        newFragment.show(supportFragmentManager, "timePicker")
+    }
+
+    class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
+
+        override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+            // Use the current time as the default values for the picker
+            val c = Calendar.getInstance()
+            val hour = c.get(Calendar.HOUR_OF_DAY)
+            val minute = c.get(Calendar.MINUTE)
+
+            // Create a new instance of TimePickerDialog and return it
+            return TimePickerDialog(
+                activity, this, hour, minute,
+                DateFormat.is24HourFormat(activity)
+            )
+        }
+
+        override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
+            // Do something with the time chosen by the user
+            //DateEdit.setText(DateEdit.getText() + " -" + hourOfDay + ":" + minute)
         }
     }
 }

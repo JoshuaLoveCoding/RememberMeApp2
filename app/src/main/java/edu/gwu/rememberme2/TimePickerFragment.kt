@@ -25,6 +25,6 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
-        DateEdit.setText(DateEdit.getText() + " -" + hourOfDay + ":" + minute)
+        //DateEdit.setText(DateEdit.getText() + "-" + hourOfDay + ":" + minute)
     }
 }
