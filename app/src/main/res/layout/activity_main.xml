@@ -36,6 +36,14 @@
                         android:onClick="setButtonPressed"
                         android:textSize="20dp"
                         android:layout_gravity="center"/>
+                <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPersonName"
+                        android:ems="10"
+                        android:id="@+id/editTime"
+                        android:textSize="20dp"
+                        android:hint="@string/hint2"/>
                 <Button
                         android:text="@string/things_bottom"
                         android:layout_width="match_parent"

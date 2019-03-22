@@ -3,6 +3,7 @@
     <string name="title_home">Home</string>
     <string name="title_notifications">Alert</string>
     <string name="hint">Enter things to be reminded!</string>
+    <string name="hint2">The set time will be displayed here.</string>
     <string name="things_bottom">Confirm</string>
     <string name="input_message">Please enter alternate phone number here, such as 12027777777.</string>
     <string name="input_hint">Alternate phone number is used to receive the location of the elderly.</string>
