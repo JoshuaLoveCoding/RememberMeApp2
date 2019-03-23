@@ -20,13 +20,14 @@ import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.DatePicker
+import android.widget.EditText
 import android.widget.TimePicker
 
 
 class MainActivity : AppCompatActivity() {
     private lateinit var persistenceManager: PersistenceManager //set persistence parameter
     private lateinit var remindersAdapter: RemindersAdapter
-    internal lateinit var DateEdit: String
+    //internal var DateEdit: EditText = findViewById(R.id.editTime)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -113,6 +114,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
+        private lateinit var persistenceManager: PersistenceManager //set persistence parameter
+        val reminders = persistenceManager.fetchReminders() //fetch reminders
 
         override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
             // Use the current date as the default date in the picker
