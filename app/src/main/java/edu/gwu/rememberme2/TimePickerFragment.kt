@@ -10,6 +10,8 @@ import java.util.*
 
 class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener {
 
+    private var onTimeSetListener: TimePickerDialog.OnTimeSetListener? = null
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current time as the default values for the picker
         val c = Calendar.getInstance()
@@ -25,6 +27,6 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
 
     override fun onTimeSet(view: TimePicker, hourOfDay: Int, minute: Int) {
         // Do something with the time chosen by the user
-        //DateEdit.setText(DateEdit.getText() + "-" + hourOfDay + ":" + minute)
+        onTimeSetListener?.onTimeSet(view, hourOfDay, minute)
     }
 }

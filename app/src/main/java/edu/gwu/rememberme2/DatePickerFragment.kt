@@ -9,6 +9,8 @@ import java.util.*
 
 class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener {
 
+    private var onDateSetListener: DatePickerDialog.OnDateSetListener? = null
+
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         // Use the current date as the default date in the picker
         val c = Calendar.getInstance()
@@ -22,6 +24,6 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
 
     override fun onDateSet(view: DatePicker, year: Int, month: Int, day: Int) {
         // Do something with the date chosen by the user
-        //DateEdit.setText(day.toString() + "/" + (month + 1) + "/" + year)
+        onDateSetListener?.onDateSet(view, year, month, day)
     }
 }
