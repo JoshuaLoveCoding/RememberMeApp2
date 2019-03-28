@@ -30,6 +30,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     private lateinit var persistenceManager: PersistenceManager //set persistence parameter
     private lateinit var remindersAdapter: RemindersAdapter
     //internal var DateEdit: EditText = findViewById(R.id.editTime)
+    private var yearT: Int = 0
+    private var monthT: Int = 0
+    private var dayT: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -115,7 +118,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        yearT = year
+        monthT = month
+        dayT = dayOfMonth
     }
 
     fun showTruitonDatePickerDialog(v: View) {
