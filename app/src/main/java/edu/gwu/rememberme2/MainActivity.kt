@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.SyncStateContract.Helpers.update
 import android.support.design.widget.BottomNavigationView
+import android.support.design.widget.TextInputEditText
 import android.support.v4.app.DialogFragment
 import android.support.v4.content.ContextCompat.getSystemService
 import android.support.v4.content.ContextCompat.startActivity
@@ -29,7 +30,6 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
     private lateinit var persistenceManager: PersistenceManager //set persistence parameter
     private lateinit var remindersAdapter: RemindersAdapter
-    //internal var DateEdit: EditText = findViewById(R.id.editTime)
     private var yearT: Int = 0
     private var monthT: Int = 0
     private var dayT: Int = 0
@@ -114,7 +114,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        val c = Calendar.getInstance()
+        c.set(yearT, monthT, dayT, hourOfDay, minute)
+        editTime.setText(DateTimeUtils.getTimeString(c))
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
