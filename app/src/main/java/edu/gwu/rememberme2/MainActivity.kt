@@ -120,9 +120,9 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
-        yearT = year
-        monthT = month
-        dayT = dayOfMonth
+        yearT = year //set year
+        monthT = month //set month
+        dayT = dayOfMonth //set day
     }
 
     fun showTruitonDatePickerDialog(v: View) {
