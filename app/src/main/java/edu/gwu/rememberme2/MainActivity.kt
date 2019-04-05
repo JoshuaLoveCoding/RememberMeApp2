@@ -110,7 +110,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
             recycler_view.layoutManager = LinearLayoutManager(this)//reload the view
             recycler_view.adapter = remindersAdapter
-        }and
+        }
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
