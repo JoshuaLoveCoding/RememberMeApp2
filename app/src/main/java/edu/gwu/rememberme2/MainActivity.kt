@@ -110,12 +110,12 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
             recycler_view.layoutManager = LinearLayoutManager(this)//reload the view
             recycler_view.adapter = remindersAdapter
-        }
+        }and
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         val c = Calendar.getInstance()
-        c.set(yearT, monthT, dayT, hourOfDay, minute)
+        c.set(yearT, monthT, dayT, hourOfDay, minute) //set year, month, and day
         editTime.setText(DateTimeUtils.getTimeString(c))
     }
 
