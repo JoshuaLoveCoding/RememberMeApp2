@@ -116,7 +116,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
         val c = Calendar.getInstance()
         c.set(yearT, monthT, dayT, hourOfDay, minute) //set year, month, and day
-        editTime.setText(DateTimeUtils.getTimeString(c))
+        editTime.setText(DateTimeUtils.getTimeString(c)) //set text in the view
     }
 
     override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
