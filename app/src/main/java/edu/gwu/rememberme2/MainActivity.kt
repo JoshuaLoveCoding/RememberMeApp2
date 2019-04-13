@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
     }
 
     fun setButtonPressed(view: View) {
-        button2.setOnClickListener {
+        editTime.setOnClickListener {
             showTruitonTimePickerDialog(view)
             showTruitonDatePickerDialog(view)
         }
@@ -109,7 +109,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
             remindersAdapter = RemindersAdapter(reminders)
 
             recycler_view.layoutManager = LinearLayoutManager(this)//reload the view
-            recycler_view.adapter = remindersAdapter
+            recycler_view.adapter = remindersAdapter //set adapter
         }
     }
 
