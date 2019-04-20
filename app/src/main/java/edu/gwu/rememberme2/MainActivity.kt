@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
     fun showTruitonDatePickerDialog(v: View) {
         val newFragment = DatePickerFragment()//call DatePickerFragment
-        newFragment.show(supportFragmentManager, "datePicker")
+        newFragment.show(supportFragmentManager, "datePicker") //show fragment
     }
 
     fun showTruitonTimePickerDialog(v: View) {
