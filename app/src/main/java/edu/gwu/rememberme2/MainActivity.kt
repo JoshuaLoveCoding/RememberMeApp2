@@ -87,7 +87,7 @@ class MainActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener, Ti
 
     fun setButtonPressed(view: View) {
         editTime.setOnClickListener {
-            showTruitonTimePickerDialog(view)
+            showTruitonTimePickerDialog(view)//show dialog
             showTruitonDatePickerDialog(view)
         }
     }
