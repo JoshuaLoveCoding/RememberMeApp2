@@ -102,7 +102,7 @@ class AlertActivity : AppCompatActivity() {
         }
 
         mDialogView.btnCancel.setOnClickListener {
-            mAlertDialog.dismiss()
+            mAlertDialog.dismiss() //dissmiss the dialog
         }
 
     }
