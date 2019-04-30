@@ -16,7 +16,7 @@ class TimePickerFragment : DialogFragment(), TimePickerDialog.OnTimeSetListener 
         // Use the current time as the default values for the picker
         val c = Calendar.getInstance()
         val hour = c.get(Calendar.HOUR_OF_DAY) //hour parameter
-        val minute = c.get(Calendar.MINUTE)
+        val minute = c.get(Calendar.MINUTE) //minute parameter
 
         // Create a new instance of TimePickerDialog and return it
         return TimePickerDialog(
